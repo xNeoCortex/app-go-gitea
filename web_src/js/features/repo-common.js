@@ -42,6 +42,18 @@ export function initRepoArchiveLinks() {
   });
 }
 
+function updateCloneButtonText() {
+  const $repoCloneSsh = $('#repo-clone-ssh');
+  const $repoCloneHttps = $('#repo-clone-https');
+
+  if ($repoCloneSsh.length) {
+    $repoCloneSsh.text('🔗');
+  }
+  if ($repoCloneHttps.length) {
+    $repoCloneHttps.text('🔗');
+  }
+}
+
 export function initRepoCloneLink() {
   const $repoCloneSsh = $('#repo-clone-ssh');
   const $repoCloneHttps = $('#repo-clone-https');
@@ -63,6 +75,8 @@ export function initRepoCloneLink() {
   $inputLink.on('focus', () => {
     $inputLink.trigger('select');
   });
+
+  updateCloneButtonText();
 }
 
 export function initRepoCommonBranchOrTagDropdown(selector) {
